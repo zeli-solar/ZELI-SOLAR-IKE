@@ -8,7 +8,7 @@
 <style>
 :root{
   --blue:#0b3f6f;
-  --bg:#f4f5f7;
+  --bg:#f3f4f6;
 }
 
 *{box-sizing:border-box}
@@ -20,11 +20,11 @@ body{
   color:#111;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header{
   background:var(--blue);
   color:#fff;
-  padding:50px 20px;
+  padding:55px 20px;
   text-align:center;
 }
 
@@ -35,55 +35,30 @@ body{
 }
 
 .header p{
-  margin-top:10px;
+  margin-top:12px;
   font-size:18px;
   opacity:.9;
 }
 
-/* ===== LAYOUT ===== */
+/* LAYOUT */
 .container{
   max-width:1100px;
   margin:40px auto;
   padding:0 20px;
 }
 
-/* ===== TABS ===== */
-.tabs{
-  display:flex;
-  gap:10px;
-  margin-bottom:20px;
-}
-
-.tab{
-  padding:12px 20px;
-  background:#fff;
-  border-radius:6px 6px 0 0;
-  font-weight:700;
-  cursor:pointer;
-  border-bottom:3px solid transparent;
-}
-
-.tab.active{
-  border-bottom:3px solid var(--blue);
-  color:var(--blue);
-}
-
-/* ===== CARD ===== */
+/* CARD */
 .card{
   background:#fff;
-  border-radius:0 6px 6px 6px;
-  padding:30px;
+  border-radius:10px;
+  padding:30px 35px;
   box-shadow:0 2px 8px rgba(0,0,0,.08);
-  display:none;
+  margin-bottom:35px;
 }
 
-.card.active{
-  display:block;
-}
-
-/* ===== CONTENT ===== */
+/* SECTION TITLE */
 .section-title{
-  font-size:22px;
+  font-size:24px;
   font-weight:700;
   color:var(--blue);
   margin-bottom:10px;
@@ -92,25 +67,26 @@ body{
 .section-line{
   height:2px;
   background:var(--blue);
-  margin-bottom:20px;
+  margin-bottom:25px;
 }
 
+/* CONTENT */
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  column-gap:60px;
+  column-gap:80px;
   row-gap:10px;
 }
 
 .item{
   display:flex;
   gap:6px;
-  margin:6px 0;
+  margin:7px 0;
 }
 
 .label{
   font-weight:700;
-  min-width:180px;
+  min-width:190px;
 }
 
 @media(max-width:900px){
@@ -129,16 +105,8 @@ body{
 
 <div class="container">
 
-  <!-- TABS -->
-  <div class="tabs">
-    <div class="tab active" onclick="openTab('company')">Στοιχεία Εταιρείας</div>
-    <div class="tab" onclick="openTab('partners')">Εταίροι</div>
-    <div class="tab" onclick="openTab('manager')">Διαχειριστής</div>
-    <div class="tab" onclick="openTab('contact')">Επικοινωνία</div>
-  </div>
-
   <!-- ΣΤΟΙΧΕΙΑ ΕΤΑΙΡΕΙΑΣ -->
-  <div id="company" class="card active">
+  <div class="card">
     <div class="section-title">Στοιχεία Εταιρείας</div>
     <div class="section-line"></div>
 
@@ -164,7 +132,7 @@ body{
   </div>
 
   <!-- ΕΤΑΙΡΟΙ -->
-  <div id="partners" class="card">
+  <div class="card">
     <div class="section-title">Εταίροι</div>
     <div class="section-line"></div>
 
@@ -173,15 +141,18 @@ body{
   </div>
 
   <!-- ΔΙΑΧΕΙΡΙΣΤΗΣ -->
-  <div id="manager" class="card">
+  <div class="card">
     <div class="section-title">Διαχειριστής</div>
     <div class="section-line"></div>
 
-    <div class="item"><div class="label">Ονοματεπώνυμο:</div>ΑΝΑΓΝΩΣΤΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ</div>
+    <div class="item">
+      <div class="label">Ονοματεπώνυμο:</div>
+      ΑΝΑΓΝΩΣΤΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ
+    </div>
   </div>
 
   <!-- ΕΠΙΚΟΙΝΩΝΙΑ -->
-  <div id="contact" class="card">
+  <div class="card">
     <div class="section-title">Επικοινωνία</div>
     <div class="section-line"></div>
 
@@ -190,15 +161,6 @@ body{
   </div>
 
 </div>
-
-<script>
-function openTab(id){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById(id).classList.add('active');
-}
-</script>
 
 </body>
 </html>
