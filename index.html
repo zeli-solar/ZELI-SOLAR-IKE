@@ -3,146 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Στοιχεία Εταιρείας</title>
+<title>ZELI SOLAR Ι.Κ.Ε. – Στοιχεία Εταιρείας</title>
 
 <style>
-  body{
-    margin:0;
-    padding:0;
-    background:#f3f4f6;
-    font-family: Arial, Helvetica, sans-serif;
-    color:#111;
-  }
+:root{
+  --blue:#0b3f6f;
+  --bg:#f4f5f7;
+}
 
-  .container{
-    max-width:1100px;
-    margin:30px auto;
-    padding:0 20px;
-  }
+*{box-sizing:border-box}
 
-  h1{
-    margin:0;
-    font-size:32px;
-    font-weight:700;
-    color:#0b4a8b;
-  }
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:#111;
+}
 
-  .title-line{
-    margin-top:8px;
-    height:3px;
-    background:#0b4a8b;
-    width:100%;
-  }
+/* ===== HEADER ===== */
+.header{
+  background:var(--blue);
+  color:#fff;
+  padding:50px 20px;
+  text-align:center;
+}
 
-  .card{
-    margin-top:20px;
-    background:#fff;
-    border-radius:6px;
-    padding:25px 30px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.08);
-  }
+.header h1{
+  margin:0;
+  font-size:34px;
+  letter-spacing:1px;
+}
 
-  .grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    column-gap:60px;
-    row-gap:8px;
-  }
+.header p{
+  margin-top:10px;
+  font-size:18px;
+  opacity:.9;
+}
 
-  .item{
-    display:flex;
-    gap:6px;
-    margin:6px 0;
-  }
+/* ===== LAYOUT ===== */
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:0 20px;
+}
 
-  .label{
-    font-weight:700;
-    min-width:170px;
-    white-space:nowrap;
-  }
+/* ===== TABS ===== */
+.tabs{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+}
 
-  .value{
-    font-weight:400;
-  }
+.tab{
+  padding:12px 20px;
+  background:#fff;
+  border-radius:6px 6px 0 0;
+  font-weight:700;
+  cursor:pointer;
+  border-bottom:3px solid transparent;
+}
 
-  .section{
-    margin-top:25px;
-  }
+.tab.active{
+  border-bottom:3px solid var(--blue);
+  color:var(--blue);
+}
 
-  .section-title{
-    font-weight:700;
-    margin-bottom:8px;
-  }
+/* ===== CARD ===== */
+.card{
+  background:#fff;
+  border-radius:0 6px 6px 6px;
+  padding:30px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  display:none;
+}
 
-  ul{
-    margin:6px 0 0 20px;
-    padding:0;
-  }
+.card.active{
+  display:block;
+}
 
-  li{
-    margin:4px 0;
-  }
+/* ===== CONTENT ===== */
+.section-title{
+  font-size:22px;
+  font-weight:700;
+  color:var(--blue);
+  margin-bottom:10px;
+}
 
-  @media(max-width:900px){
-    .grid{
-      grid-template-columns:1fr;
-    }
-  }
+.section-line{
+  height:2px;
+  background:var(--blue);
+  margin-bottom:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  column-gap:60px;
+  row-gap:10px;
+}
+
+.item{
+  display:flex;
+  gap:6px;
+  margin:6px 0;
+}
+
+.label{
+  font-weight:700;
+  min-width:180px;
+}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+<div class="header">
+  <h1>ZELI SOLAR Ι.Κ.Ε.</h1>
+  <p>Παραγωγή Ηλεκτρικής Ενέργειας από Φωτοβολταϊκά Συστήματα</p>
+</div>
+
 <div class="container">
 
-  <h1>Στοιχεία Εταιρείας</h1>
-  <div class="title-line"></div>
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tab active" onclick="openTab('company')">Στοιχεία Εταιρείας</div>
+    <div class="tab" onclick="openTab('partners')">Εταίροι</div>
+    <div class="tab" onclick="openTab('manager')">Διαχειριστής</div>
+    <div class="tab" onclick="openTab('contact')">Επικοινωνία</div>
+  </div>
 
-  <div class="card">
+  <!-- ΣΤΟΙΧΕΙΑ ΕΤΑΙΡΕΙΑΣ -->
+  <div id="company" class="card active">
+    <div class="section-title">Στοιχεία Εταιρείας</div>
+    <div class="section-line"></div>
 
     <div class="grid">
-      <!-- Αριστερά -->
       <div>
-        <div class="item"><div class="label">Επωνυμία:</div><div class="value">ZELI SOLAR Ι.Κ.Ε.</div></div>
-        <div class="item"><div class="label">ΔΟΥ:</div><div class="value">ΚΕΦΟΔΕ ΑΤΤΙΚΗΣ</div></div>
-        <div class="item"><div class="label">Ημ/νία Έναρξης:</div><div class="value">11/04/2019</div></div>
-        <div class="item"><div class="label">Κατάσταση:</div><div class="value">Ενεργή</div></div>
-        <div class="item"><div class="label">Έδρα:</div><div class="value">Λεωφόρος Δεκελείας 37, Νέα Χαλκηδόνα</div></div>
-        <div class="item"><div class="label">Υπαγωγή ΦΠΑ:</div><div class="value">Ναι</div></div>
+        <div class="item"><div class="label">Επωνυμία:</div>ZELI SOLAR Ι.Κ.Ε.</div>
+        <div class="item"><div class="label">ΔΟΥ:</div>ΚΕΦΟΔΕ ΑΤΤΙΚΗΣ</div>
+        <div class="item"><div class="label">Ημερομηνία Έναρξης:</div>11/04/2019</div>
+        <div class="item"><div class="label">Κατάσταση:</div>Ενεργή</div>
+        <div class="item"><div class="label">Έδρα:</div>Λεωφόρος Δεκελείας 37, Νέα Χαλκηδόνα</div>
+        <div class="item"><div class="label">Υπαγωγή ΦΠΑ:</div>Ναι</div>
       </div>
 
-      <!-- Δεξιά -->
       <div>
-        <div class="item"><div class="label">ΑΦΜ:</div><div class="value">801143293</div></div>
-        <div class="item"><div class="label">Αρ. ΓΕΜΗ:</div><div class="value">150097802000</div></div>
-        <div class="item"><div class="label">Νομική Μορφή:</div><div class="value">Ιδιωτική Κεφαλαιουχική Εταιρεία</div></div>
-        <div class="item"><div class="label">Κεφάλαιο:</div><div class="value">10.000,00 €</div></div>
-        <div class="item"><div class="label">Κατηγορία Βιβλίων:</div><div class="value">Γ’ (Διπλογραφικά)</div></div>
-        <div class="item"><div class="label">Λήξη Διάρκειας:</div><div class="value">11/04/2049</div></div>
+        <div class="item"><div class="label">ΑΦΜ:</div>801143293</div>
+        <div class="item"><div class="label">Αρ. ΓΕΜΗ:</div>150097802000</div>
+        <div class="item"><div class="label">Νομική Μορφή:</div>Ιδιωτική Κεφαλαιουχική Εταιρεία</div>
+        <div class="item"><div class="label">Κεφάλαιο:</div>10.000,00 €</div>
+        <div class="item"><div class="label">Κατηγορία Βιβλίων:</div>Γ’ (Διπλογραφικά)</div>
+        <div class="item"><div class="label">Λήξη Διάρκειας:</div>11/04/2049</div>
       </div>
     </div>
-
-    <div class="section">
-      <div class="section-title">Εταίροι</div>
-      <ul>
-        <li><strong>ΑΥΓΕΡΗΣ ΔΗΜΗΤΡΙΟΣ</strong> – 50%</li>
-        <li><strong>ΑΝΑΓΝΩΣΤΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ</strong> – 50%</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Διαχειριστής</div>
-      <div class="item"><div class="label">Ονοματεπώνυμο:</div><div class="value">ΑΝΑΓΝΩΣΤΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ</div></div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Επικοινωνία</div>
-      <div class="item"><div class="label">Email:</div><div class="value">anageosmail@gmail.com</div></div>
-      <div class="item"><div class="label">Τηλέφωνο:</div><div class="value">6945756254</div></div>
-    </div>
-
   </div>
+
+  <!-- ΕΤΑΙΡΟΙ -->
+  <div id="partners" class="card">
+    <div class="section-title">Εταίροι</div>
+    <div class="section-line"></div>
+
+    <div class="item"><div class="label">ΑΥΓΕΡΗΣ ΔΗΜΗΤΡΙΟΣ:</div>50%</div>
+    <div class="item"><div class="label">ΑΝΑΓΝΩΣΤΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ:</div>50%</div>
+  </div>
+
+  <!-- ΔΙΑΧΕΙΡΙΣΤΗΣ -->
+  <div id="manager" class="card">
+    <div class="section-title">Διαχειριστής</div>
+    <div class="section-line"></div>
+
+    <div class="item"><div class="label">Ονοματεπώνυμο:</div>ΑΝΑΓΝΩΣΤΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ</div>
+  </div>
+
+  <!-- ΕΠΙΚΟΙΝΩΝΙΑ -->
+  <div id="contact" class="card">
+    <div class="section-title">Επικοινωνία</div>
+    <div class="section-line"></div>
+
+    <div class="item"><div class="label">Email:</div>anageosmail@gmail.com</div>
+    <div class="item"><div class="label">Τηλέφωνο:</div>6945756254</div>
+  </div>
+
 </div>
+
+<script>
+function openTab(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
 
 </body>
 </html>
